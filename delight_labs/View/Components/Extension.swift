@@ -100,7 +100,7 @@ extension String {
 }
 
 extension Date {
-
+    
     public func formatted(_ format: String) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
@@ -108,6 +108,18 @@ extension Date {
         formatter.timeZone = TimeZone(identifier: "UTC")
         
         return formatter.string(from: self)
+    }
+    
+    func lastDayofMonth() -> Int {
+        let cal = Calendar.current
+        let components = cal.dateComponents([.year, .month], from: Date())
+        guard let y = components.year, let m = components.month else { return 0 }
+
+        var comps = DateComponents(calendar: cal, year: y, month: m)
+        comps.setValue(m + 1, for: .month)
+        comps.setValue(0, for: .day)
+        let date = cal.date(from: comps)!
+        return cal.component(.day, from: date)
     }
 }
 

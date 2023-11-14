@@ -12,10 +12,9 @@ class MainViewController: UIViewController {
     let mainView = MainView()
     private var transactionListVM: TransactionListViewModel!
     
-    var transactionCount: Int = 20
-    
     let transactionTitleIndexPath = IndexPath(row: 1, section: 0)
-    
+    let graphTitleIndexPath = IndexPath(row: 0, section: 0)
+    var transactionCount: Int = 20
     var selectedTransactionType : transactionType = .All {
         didSet {
             // set transactionCount
@@ -32,6 +31,16 @@ class MainViewController: UIViewController {
             // set Type Button Selected
             guard let cell = mainView.collectionView.cellForItem(at: transactionTitleIndexPath) as? TransactionTitleCell else { return }
             cell.typeBtnSelected(type: selectedTransactionType)
+            mainView.collectionView.reloadData()
+        }
+    }
+    
+    var seletedGraphType : graphType = .Day {
+        didSet {
+            
+            // set Type Button Selected
+            guard let cell = mainView.collectionView.cellForItem(at: graphTitleIndexPath) as? GraphTitleCell else { return }
+            cell.typeBtnSelected(type: seletedGraphType)
             mainView.collectionView.reloadData()
         }
     }
@@ -97,6 +106,8 @@ extension MainViewController :UICollectionViewDelegate, UICollectionViewDataSour
                 return UICollectionViewCell()
             }
             cell.contentView.isUserInteractionEnabled = false
+            cell.dayBtn.addTarget(self, action: #selector(onGraphSwitchChanged), for: .touchUpInside)
+            cell.monthBtn.addTarget(self, action: #selector(onGraphSwitchChanged), for: .touchUpInside)
             return cell
         case 1 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TransactionTitleCell.reuseIdentifier, for: indexPath) as? TransactionTitleCell else {
@@ -124,6 +135,15 @@ extension MainViewController :UICollectionViewDelegate, UICollectionViewDataSour
                 }
             }
             return cell
+        }
+    }
+    
+    @objc private func onGraphSwitchChanged(_ sender : UIButton) {
+        guard let cell = mainView.collectionView.cellForItem(at: graphTitleIndexPath) as? GraphTitleCell else { return }
+        if sender == cell.dayBtn {
+            seletedGraphType = .Day
+        }else {
+            seletedGraphType = .Month
         }
     }
     

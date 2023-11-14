@@ -26,7 +26,7 @@ class GraphTitleCell : UICollectionViewCell {
     let dateLabel = UILabel().then {
         $0.font = UIFont.popinsRegular(size: 12)
         $0.textAlignment = .right
-        $0.text = "MM-DD-YYYY"
+        $0.text = Date().formatted("MMM d, yyyy")
         $0.textColor = .navy
     }
     
@@ -39,25 +39,28 @@ class GraphTitleCell : UICollectionViewCell {
         $0.clipsToBounds = true
     }
     
-    let dayBtn = UIButton().then {
+    let dayBtn = SwitchButton().then {
         $0.setTitle("Day", for: .normal)
-        $0.backgroundColor = .navy
-        $0.setTitleColor(.switchTextLight, for: .normal)
         $0.titleLabel?.font = .popinsBold(size: 16)
+        $0.setTitleColor(.switchTextLight, for: .normal)
+        $0.setTitleColor(.white, for: .selected)
         
         $0.layer.cornerRadius = 17
         $0.layer.masksToBounds = true
         $0.clipsToBounds = true
+        $0.isSelected = true
     }
     
-    let monthBtn = UIButton().then {
+    let monthBtn = SwitchButton().then {
         $0.setTitle("Month", for: .normal)
         $0.titleLabel?.font = .popinsBold(size: 16)
         $0.setTitleColor(.switchTextDark, for: .normal)
+        $0.setTitleColor(.white, for: .selected)
         
         $0.layer.cornerRadius = 17
         $0.layer.masksToBounds = true
         $0.clipsToBounds = true
+
     }
     
     
@@ -122,4 +125,27 @@ class GraphTitleCell : UICollectionViewCell {
             make.height.equalTo(5)
         }
     }
+    
+    
+    func typeBtnSelected (type : graphType) {
+        let current = Date()
+        
+        switch type {
+        case .Day :
+            dayBtn.isSelected = true
+            monthBtn.isSelected = false
+            dateLabel.text = Date().formatted("MMM d, yyyy")
+        case .Month:
+            dayBtn.isSelected = false
+            monthBtn.isSelected = true
+            let month = current.formatted("MMM")
+            dateLabel.text = "\(month) 1 - \(month) \(current.lastDayofMonth()), \(current.formatted("yyyy"))"
+        }
+        
+    }
+}
+
+enum graphType {
+    case Day
+    case Month
 }

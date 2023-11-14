@@ -29,6 +29,7 @@
 		4BF5189A2B03A98700645D4D /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF518992B03A98700645D4D /* Transactions.swift */; };
 		4BF5189D2B03AA1900645D4D /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5189C2B03AA1900645D4D /* TransactionViewModel.swift */; };
 		4BF5189F2B03C7BD00645D4D /* mockdata.json in Resources */ = {isa = PBXBuildFile; fileRef = 4BF5189E2B03C7BD00645D4D /* mockdata.json */; };
+		4BF518A12B03DEE600645D4D /* SwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF518A02B03DEE600645D4D /* SwitchButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		4BF518992B03A98700645D4D /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
 		4BF5189C2B03AA1900645D4D /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		4BF5189E2B03C7BD00645D4D /* mockdata.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockdata.json; sourceTree = "<group>"; };
+		4BF518A02B03DEE600645D4D /* SwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				4BF5186F2B021A1600645D4D /* Extension.swift */,
 				4BF518942B03826D00645D4D /* BaseLabel.swift */,
 				4BF518662B0214C900645D4D /* Fonts */,
+				4BF518A02B03DEE600645D4D /* SwitchButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				4BF518622B02122800645D4D /* MainView.swift in Sources */,
 				4BF5189A2B03A98700645D4D /* Transactions.swift in Sources */,
 				4BF5188D2B03370300645D4D /* TransactionTableCell.swift in Sources */,
+				4BF518A12B03DEE600645D4D /* SwitchButton.swift in Sources */,
 				4BF5184C2B0211F400645D4D /* AppDelegate.swift in Sources */,
 				4BF5184E2B0211F400645D4D /* SceneDelegate.swift in Sources */,
 				4BF518932B037DC800645D4D /* CollectionHeaderView.swift in Sources */,
