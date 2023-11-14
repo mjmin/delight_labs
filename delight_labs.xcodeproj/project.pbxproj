@@ -15,17 +15,20 @@
 		4BF518622B02122800645D4D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF518612B02122800645D4D /* MainView.swift */; };
 		4BF5186B2B02166000645D4D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4BF5186A2B02166000645D4D /* SnapKit */; };
 		4BF5186E2B02166E00645D4D /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 4BF5186D2B02166E00645D4D /* Then */; };
-		4BF518702B021A1600645D4D /* BaseStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5186F2B021A1600645D4D /* BaseStyle.swift */; };
+		4BF518702B021A1600645D4D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5186F2B021A1600645D4D /* Extension.swift */; };
 		4BF518722B021CC900645D4D /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BF518712B021CC900645D4D /* Poppins-Regular.ttf */; };
 		4BF518742B021CE100645D4D /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BF518732B021CE100645D4D /* Poppins-Bold.ttf */; };
 		4BF518782B02711600645D4D /* GraphTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF518772B02711600645D4D /* GraphTitleCell.swift */; };
 		4BF5187A2B0271C700645D4D /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF518792B0271C700645D4D /* ReuseIdentifier.swift */; };
-		4BF518892B03310100645D4D /* delightlabs-ios-hometest-mockdata.json in Resources */ = {isa = PBXBuildFile; fileRef = 4BF518882B03310100645D4D /* delightlabs-ios-hometest-mockdata.json */; };
+		4BF518892B03310100645D4D /* mockdata_temp.json in Resources */ = {isa = PBXBuildFile; fileRef = 4BF518882B03310100645D4D /* mockdata_temp.json */; };
 		4BF5188B2B0331F500645D4D /* TransactionTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5188A2B0331F500645D4D /* TransactionTitleCell.swift */; };
 		4BF5188D2B03370300645D4D /* TransactionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5188C2B03370300645D4D /* TransactionTableCell.swift */; };
 		4BF518912B03662C00645D4D /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BF518902B03662C00645D4D /* Poppins-SemiBold.ttf */; };
 		4BF518932B037DC800645D4D /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF518922B037DC800645D4D /* CollectionHeaderView.swift */; };
 		4BF518952B03826D00645D4D /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF518942B03826D00645D4D /* BaseLabel.swift */; };
+		4BF5189A2B03A98700645D4D /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF518992B03A98700645D4D /* Transactions.swift */; };
+		4BF5189D2B03AA1900645D4D /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5189C2B03AA1900645D4D /* TransactionViewModel.swift */; };
+		4BF5189F2B03C7BD00645D4D /* mockdata.json in Resources */ = {isa = PBXBuildFile; fileRef = 4BF5189E2B03C7BD00645D4D /* mockdata.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,17 +40,20 @@
 		4BF518572B0211F500645D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BF518592B0211F500645D4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BF518612B02122800645D4D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		4BF5186F2B021A1600645D4D /* BaseStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStyle.swift; sourceTree = "<group>"; };
+		4BF5186F2B021A1600645D4D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		4BF518712B021CC900645D4D /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		4BF518732B021CE100645D4D /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		4BF518772B02711600645D4D /* GraphTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTitleCell.swift; sourceTree = "<group>"; };
 		4BF518792B0271C700645D4D /* ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifier.swift; sourceTree = "<group>"; };
-		4BF518882B03310100645D4D /* delightlabs-ios-hometest-mockdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "delightlabs-ios-hometest-mockdata.json"; sourceTree = "<group>"; };
+		4BF518882B03310100645D4D /* mockdata_temp.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mockdata_temp.json; sourceTree = "<group>"; };
 		4BF5188A2B0331F500645D4D /* TransactionTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTitleCell.swift; sourceTree = "<group>"; };
 		4BF5188C2B03370300645D4D /* TransactionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableCell.swift; sourceTree = "<group>"; };
 		4BF518902B03662C00645D4D /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		4BF518922B037DC800645D4D /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
 		4BF518942B03826D00645D4D /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
+		4BF518992B03A98700645D4D /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
+		4BF5189C2B03AA1900645D4D /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
+		4BF5189E2B03C7BD00645D4D /* mockdata.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockdata.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,14 +88,17 @@
 		4BF5184A2B0211F400645D4D /* delight_labs */ = {
 			isa = PBXGroup;
 			children = (
+				4BF5189B2B03AA0B00645D4D /* Model */,
+				4BF518982B03A96B00645D4D /* ViewModel */,
+				4BF518972B03A96000645D4D /* Controller */,
 				4BF518652B02145E00645D4D /* View */,
 				4BF5184B2B0211F400645D4D /* AppDelegate.swift */,
 				4BF5184D2B0211F400645D4D /* SceneDelegate.swift */,
-				4BF5184F2B0211F400645D4D /* MainViewController.swift */,
 				4BF518542B0211F500645D4D /* Assets.xcassets */,
 				4BF518562B0211F500645D4D /* LaunchScreen.storyboard */,
 				4BF518592B0211F500645D4D /* Info.plist */,
-				4BF518882B03310100645D4D /* delightlabs-ios-hometest-mockdata.json */,
+				4BF518882B03310100645D4D /* mockdata_temp.json */,
+				4BF5189E2B03C7BD00645D4D /* mockdata.json */,
 			);
 			path = delight_labs;
 			sourceTree = "<group>";
@@ -121,11 +130,35 @@
 			isa = PBXGroup;
 			children = (
 				4BF518792B0271C700645D4D /* ReuseIdentifier.swift */,
-				4BF5186F2B021A1600645D4D /* BaseStyle.swift */,
+				4BF5186F2B021A1600645D4D /* Extension.swift */,
 				4BF518942B03826D00645D4D /* BaseLabel.swift */,
 				4BF518662B0214C900645D4D /* Fonts */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		4BF518972B03A96000645D4D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4BF5184F2B0211F400645D4D /* MainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4BF518982B03A96B00645D4D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4BF5189C2B03AA1900645D4D /* TransactionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4BF5189B2B03AA0B00645D4D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4BF518992B03A98700645D4D /* Transactions.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,7 +232,8 @@
 				4BF518552B0211F500645D4D /* Assets.xcassets in Resources */,
 				4BF518912B03662C00645D4D /* Poppins-SemiBold.ttf in Resources */,
 				4BF518742B021CE100645D4D /* Poppins-Bold.ttf in Resources */,
-				4BF518892B03310100645D4D /* delightlabs-ios-hometest-mockdata.json in Resources */,
+				4BF518892B03310100645D4D /* mockdata_temp.json in Resources */,
+				4BF5189F2B03C7BD00645D4D /* mockdata.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,12 +244,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BF518702B021A1600645D4D /* BaseStyle.swift in Sources */,
+				4BF5189D2B03AA1900645D4D /* TransactionViewModel.swift in Sources */,
+				4BF518702B021A1600645D4D /* Extension.swift in Sources */,
 				4BF518952B03826D00645D4D /* BaseLabel.swift in Sources */,
 				4BF518502B0211F400645D4D /* MainViewController.swift in Sources */,
 				4BF5188B2B0331F500645D4D /* TransactionTitleCell.swift in Sources */,
 				4BF518782B02711600645D4D /* GraphTitleCell.swift in Sources */,
 				4BF518622B02122800645D4D /* MainView.swift in Sources */,
+				4BF5189A2B03A98700645D4D /* Transactions.swift in Sources */,
 				4BF5188D2B03370300645D4D /* TransactionTableCell.swift in Sources */,
 				4BF5184C2B0211F400645D4D /* AppDelegate.swift in Sources */,
 				4BF5184E2B0211F400645D4D /* SceneDelegate.swift in Sources */,

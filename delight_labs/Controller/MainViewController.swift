@@ -8,13 +8,66 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    
     let mainView = MainView()
-    var trasactionCount = 10
+    private var transactionListVM: TransactionListViewModel!
+    
+    var transactionCount: Int = 20
+    
+    let transactionTitleIndexPath = IndexPath(row: 1, section: 0)
+    
+    var selectedTransactionType : transactionType = .All {
+        didSet {
+            // set transactionCount
+            var defaultCount : Int
+            switch selectedTransactionType {
+            case .All :
+                defaultCount = 20
+            default:
+                defaultCount = 10
+            }
+            let VMListCount = transactionListVM.numberOfRowsAtType(selectedTransactionType)
+            transactionCount = min(VMListCount, defaultCount)
+            
+            // set Type Button Selected
+            guard let cell = mainView.collectionView.cellForItem(at: transactionTitleIndexPath) as? TransactionTitleCell else { return }
+            cell.typeBtnSelected(type: selectedTransactionType)
+            mainView.collectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = mainView
         setCollectionView()
+    }
+    
+    override func loadView() {
+        super.loadView()
+        getTransactionData()
+    }
+    
+    func getTransactionData () {
+        if let path = Bundle.main.path(forResource: "mockdata", ofType: "json") {
+            do {
+                  let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                  let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+                
+                  if let jsonResult = jsonResult as? [Dictionary<String, AnyObject>] {
+                      
+                      let transactions = jsonResult.compactMap {
+                          if let name = $0["name"] as? String, let type = $0["type"] as? String, let amount = Float($0["amount"] as? Substring ?? "0"), let date = $0["timestamp"] as? String, let timestamp = date.toDate() {
+                              return Transaction(name: name, type: type, amount: amount, timestamp: timestamp)
+                          }
+                          return nil
+                      }
+                      
+                      self.transactionListVM = TransactionListViewModel(list: transactions)
+                  }
+              } catch {
+                   // handle error
+              }
+        }
     }
     
     func setCollectionView (){
@@ -25,13 +78,16 @@ class MainViewController: UIViewController {
         mainView.collectionView.register(TransactionTitleCell.self, forCellWithReuseIdentifier: TransactionTitleCell.reuseIdentifier)
         mainView.collectionView.register(TransactionTableCell.self, forCellWithReuseIdentifier: TransactionTableCell.reuseIdentifier)
         mainView.collectionView.register(CollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderView.reuseIdentifier)
+        
+        mainView.collectionView.reloadData()
+        selectedTransactionType = .All
     }
 }
 
 extension MainViewController :UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2 + trasactionCount
+        return 2 + transactionCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -47,18 +103,42 @@ extension MainViewController :UICollectionViewDelegate, UICollectionViewDataSour
                 return UICollectionViewCell()
             }
             cell.contentView.isUserInteractionEnabled = false
+            cell.allBtn.addTarget(self, action: #selector(onTransactionTypeChanged), for: .touchUpInside)
+            cell.expenseBtn.addTarget(self, action: #selector(onTransactionTypeChanged), for: .touchUpInside)
+            cell.incomeBtn.addTarget(self, action: #selector(onTransactionTypeChanged), for: .touchUpInside)
             return cell
         default:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TransactionTableCell.reuseIdentifier, for: indexPath) as? TransactionTableCell else {
                 return UICollectionViewCell()
             }
-            cell.contentView.isUserInteractionEnabled = false
+            let item = transactionListVM.transactionAtIndex(indexPath.row, type: selectedTransactionType)
+            cell.nameLabel.text = item.name
+            cell.typeLabel.text = item.type
+            
+            cell.timeLabel.text = item.timestamp?.formatted("h.mm a")
+            if let amount = item.amount {
+                if amount > 0 {
+                    cell.amountLabel.text = "+\(String(format: "%.1f", amount))"
+                }else {
+                    cell.amountLabel.text = "\(String(format: "%.1f", amount))"
+                }
+            }
             return cell
         }
     }
     
+    @objc private func onTransactionTypeChanged(_ sender : UIButton) {
+        guard let cell = mainView.collectionView.cellForItem(at: transactionTitleIndexPath) as? TransactionTitleCell else { return }
+        if sender == cell.allBtn {
+            selectedTransactionType = .All
+        }else if sender == cell.expenseBtn {
+            selectedTransactionType = .Expense
+        }else {
+            selectedTransactionType = .Income
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        print(#function, kind)
         if kind == UICollectionView.elementKindSectionHeader {
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderView.reuseIdentifier, for: indexPath) as? CollectionHeaderView else {
                 return UICollectionReusableView()

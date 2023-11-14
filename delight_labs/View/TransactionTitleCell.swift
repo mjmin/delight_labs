@@ -31,20 +31,25 @@ class TransactionTitleCell : UICollectionViewCell {
     
     let allBtn = UIButton().then {
         $0.setTitle("All", for: .normal)
-        $0.setTitleColor(.navy, for: .normal)
         $0.titleLabel?.font = .popinsBold(size: 16)
+        $0.setTitleColor(.transactionLight, for: .normal)
+        $0.setTitleColor(.navy, for: .selected)
+        $0.isSelected = true
     }
     
     let expenseBtn = UIButton().then {
         $0.setTitle("Expense", for: .normal)
         $0.titleLabel?.font = .popinsBold(size: 16)
         $0.setTitleColor(.transactionLight, for: .normal)
+        $0.setTitleColor(.navy, for: .selected)
     }
     
     let incomeBtn = UIButton().then {
         $0.setTitle("Income", for: .normal)
         $0.titleLabel?.font = .popinsBold(size: 16)
         $0.setTitleColor(.transactionLight, for: .normal)
+        $0.setTitleColor(.navy, for: .selected)
+        
     }
     
     let emptyView = UIView()
@@ -72,4 +77,30 @@ class TransactionTitleCell : UICollectionViewCell {
         }
     
     }
+    
+    
+    func typeBtnSelected (type : transactionType) {
+        switch type {
+        case .All :
+            allBtn.isSelected = true
+            expenseBtn.isSelected = false
+            incomeBtn.isSelected = false
+        case .Expense:
+            allBtn.isSelected = false
+            expenseBtn.isSelected = true
+            incomeBtn.isSelected = false
+        case .Income:
+            allBtn.isSelected = false
+            expenseBtn.isSelected = false
+            incomeBtn.isSelected = true
+        }
+        
+    }
+    
+}
+
+enum transactionType {
+    case All
+    case Expense
+    case Income
 }

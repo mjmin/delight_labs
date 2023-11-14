@@ -27,7 +27,9 @@ class GraphTitleCell : UICollectionViewCell {
         $0.font = UIFont.popinsRegular(size: 12)
         $0.textAlignment = .right
         $0.text = "MM-DD-YYYY"
+        $0.textColor = .navy
     }
+    
     let switchView = UIStackView().then {
         $0.alignment = .center
         $0.distribution = .fillEqually

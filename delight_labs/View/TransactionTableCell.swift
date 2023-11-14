@@ -12,12 +12,6 @@ import SnapKit
 
 class TransactionTableCell : UICollectionViewCell {
     
-//    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-//        super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        setConfigure()
-//        setConstraints()
-//    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setConfigure()
@@ -29,7 +23,7 @@ class TransactionTableCell : UICollectionViewCell {
     
     let stackView = UIStackView().then() {
         $0.alignment = .center
-        $0.spacing = 20
+        $0.spacing = 12
     }
     
     let image = UIImageView().then {

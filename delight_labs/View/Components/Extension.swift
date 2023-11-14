@@ -81,3 +81,33 @@ extension UIFont {
         return font
     }
 }
+
+extension String {
+    func toDate(_ format : String? = nil) -> Date? { //"yyyy-MM-dd HH:mm:ss"
+        let dateFormatter = DateFormatter()
+        if let format {
+            dateFormatter.dateFormat = format
+        }else {
+            dateFormatter.dateFormat =  "yyyy-MM-dd'T'HH:mm:ssZ"
+        }
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        if let date = dateFormatter.date(from: self) {
+            return date
+        } else {
+            return nil
+        }
+    }
+}
+
+extension Date {
+
+    public func formatted(_ format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(identifier: "UTC")
+        
+        return formatter.string(from: self)
+    }
+}
+
