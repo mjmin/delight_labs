@@ -64,31 +64,9 @@ class GraphTitleCell : UICollectionViewCell {
     }
     
     
-    let graphLabelStack = UIStackView().then {
-        $0.alignment = .center
-        $0.spacing = 10
-    }
-    
-    let incomeColor = UIView().then {
-        $0.backgroundColor = .navy
-    }
-    let incomeText = BaseLabel().then {
-        $0.text = "Income"
-        $0.setSize(12)
-    }
-    let expenseColor = UIView().then {
-        $0.backgroundColor = .green
-    }
-    let expenseText = BaseLabel().then {
-        $0.text = "Expense"
-        $0.setSize(12)
-    }
-    let emptyView = UIView()
-    
-    
     func setConfigure() {
         backgroundColor = .white
-        [titleView, graphLabelStack].forEach {
+        [titleView].forEach {
             self.addSubview($0)
         }
         [switchView, dateLabel].forEach {
@@ -96,9 +74,6 @@ class GraphTitleCell : UICollectionViewCell {
         }
         [dayBtn, monthBtn].forEach {
             switchView.addArrangedSubview($0)
-        }
-        [incomeColor, incomeText, expenseColor, expenseText, emptyView].forEach {
-            graphLabelStack.addArrangedSubview($0)
         }
     }
     
@@ -109,20 +84,8 @@ class GraphTitleCell : UICollectionViewCell {
             make.height.equalTo(34)
         }
         
-        graphLabelStack.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalTo(self.titleView.snp.bottom).offset(20)
-        }
         switchView.snp.makeConstraints { make in
             make.width.equalTo(172)
-        }
-        incomeColor.snp.makeConstraints { make in
-            make.width.equalTo(32)
-            make.height.equalTo(5)
-        }
-        expenseColor.snp.makeConstraints { make in
-            make.width.equalTo(32)
-            make.height.equalTo(5)
         }
     }
     

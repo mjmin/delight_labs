@@ -182,7 +182,7 @@ extension MainViewController :UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch (indexPath.row) {
         case 0 :
-            return CGSize(width: collectionView.frame.width, height: 110)
+            return CGSize(width: collectionView.frame.width, height: 60)
         case 1:
             return CGSize(width: collectionView.frame.width, height: 230)
         case 2:

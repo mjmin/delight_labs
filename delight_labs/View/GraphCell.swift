@@ -25,7 +25,13 @@ class GraphCell : UICollectionViewCell {
         $0.leftAxis.enabled = false
         $0.chartDescription.enabled = false
         
-        $0.legend.enabled = false
+        $0.legend.enabled = true
+        $0.legend.formLineWidth = 5
+        $0.legend.font = .popinsSemiBold(size: 12)
+        $0.legend.form = .line
+        $0.legend.formSize = 32
+        $0.legend.horizontalAlignment = .left
+        $0.legend.verticalAlignment = .top
         $0.setMarker(defaultColor: .navy)
     }
     
