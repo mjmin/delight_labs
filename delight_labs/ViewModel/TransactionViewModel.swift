@@ -15,7 +15,24 @@ extension TransactionListViewModel {
     var numberOfSections: Int {
         return 1
     }
-
+    func listAtType(_ type : transactionType) -> [Transaction] {
+        var selectedList : [Transaction]
+        switch type {
+        case .All:
+            selectedList = list
+        case .Expense :
+            selectedList = list.filter{
+                guard let amount = $0.amount else { return false }
+                return amount < 0
+            }
+        case .Income :
+            selectedList = list.filter{
+                guard let amount = $0.amount else { return false }
+                return amount > 0
+            }
+        }
+        return selectedList
+    }
     func numberOfRowsAtType(_ type : transactionType) -> Int {
         var selectedList : [Transaction]
         switch type {

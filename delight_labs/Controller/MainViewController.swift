@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DGCharts
 
 class MainViewController: UIViewController {
     
@@ -45,7 +46,7 @@ class MainViewController: UIViewController {
             // graph Title - [switchButton, Date] Change
             guard let cell = mainView.collectionView.cellForItem(at: graphTitleIndexPath) as? GraphTitleCell else { return }
             cell.typeBtnSelected(type: seletedGraphType)
-            // graph - [axis] Change
+            // graph - [axis] Change, reload Graph
             guard let cell = mainView.collectionView.cellForItem(at: graphIndexPath) as? GraphCell else { return }
             cell.typeBtnSelected(type: seletedGraphType)
             mainView.collectionView.reloadData()
@@ -79,6 +80,7 @@ class MainViewController: UIViewController {
                       }
                       
                       self.transactionListVM = TransactionListViewModel(list: transactions)
+                      mainView.collectionView.reloadData()
                   }
               } catch {
                    // handle error
@@ -118,9 +120,9 @@ extension MainViewController :UICollectionViewDelegate, UICollectionViewDataSour
             cell.monthBtn.addTarget(self, action: #selector(onGraphSwitchChanged), for: .touchUpInside)
             return cell
         case 1 :
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GraphCell.reuseIdentifier, for: indexPath) as? GraphCell else {
-                return UICollectionViewCell()
-            }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GraphCell.reuseIdentifier, for: indexPath) as? GraphCell else { return UICollectionViewCell() }
+            cell.setChartData(income: transactionListVM.listAtType(.Income),
+                              expense: transactionListVM.listAtType(.Expense))
             return cell
         case 2 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TransactionTitleCell.reuseIdentifier, for: indexPath) as? TransactionTitleCell else {

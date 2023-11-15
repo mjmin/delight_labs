@@ -31,6 +31,8 @@
 		4BF5189F2B03C7BD00645D4D /* mockdata.json in Resources */ = {isa = PBXBuildFile; fileRef = 4BF5189E2B03C7BD00645D4D /* mockdata.json */; };
 		4BF518A12B03DEE600645D4D /* SwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF518A02B03DEE600645D4D /* SwitchButton.swift */; };
 		4BF518A32B04428F00645D4D /* GraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF518A22B04428F00645D4D /* GraphCell.swift */; };
+		4BF518A62B04512600645D4D /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 4BF518A52B04512600645D4D /* DGCharts */; };
+		4BF518A92B045B5700645D4D /* BallonMarkers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF518A82B045B5700645D4D /* BallonMarkers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,7 @@
 		4BF5189E2B03C7BD00645D4D /* mockdata.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockdata.json; sourceTree = "<group>"; };
 		4BF518A02B03DEE600645D4D /* SwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchButton.swift; sourceTree = "<group>"; };
 		4BF518A22B04428F00645D4D /* GraphCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphCell.swift; sourceTree = "<group>"; };
+		4BF518A82B045B5700645D4D /* BallonMarkers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallonMarkers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BF5186B2B02166000645D4D /* SnapKit in Frameworks */,
+				4BF518A62B04512600645D4D /* DGCharts in Frameworks */,
 				4BF5186E2B02166E00645D4D /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +143,7 @@
 				4BF518942B03826D00645D4D /* BaseLabel.swift */,
 				4BF518662B0214C900645D4D /* Fonts */,
 				4BF518A02B03DEE600645D4D /* SwitchButton.swift */,
+				4BF518A82B045B5700645D4D /* BallonMarkers.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 			packageProductDependencies = (
 				4BF5186A2B02166000645D4D /* SnapKit */,
 				4BF5186D2B02166E00645D4D /* Then */,
+				4BF518A52B04512600645D4D /* DGCharts */,
 			);
 			productName = delight_labs;
 			productReference = 4BF518482B0211F400645D4D /* delight_labs.app */;
@@ -218,6 +224,7 @@
 			packageReferences = (
 				4BF518692B02166000645D4D /* XCRemoteSwiftPackageReference "SnapKit" */,
 				4BF5186C2B02166E00645D4D /* XCRemoteSwiftPackageReference "Then" */,
+				4BF518A42B04512600645D4D /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 4BF518492B0211F400645D4D /* Products */;
 			projectDirPath = "";
@@ -261,6 +268,7 @@
 				4BF5189A2B03A98700645D4D /* Transactions.swift in Sources */,
 				4BF5188D2B03370300645D4D /* TransactionTableCell.swift in Sources */,
 				4BF518A12B03DEE600645D4D /* SwitchButton.swift in Sources */,
+				4BF518A92B045B5700645D4D /* BallonMarkers.swift in Sources */,
 				4BF5184C2B0211F400645D4D /* AppDelegate.swift in Sources */,
 				4BF5184E2B0211F400645D4D /* SceneDelegate.swift in Sources */,
 				4BF518932B037DC800645D4D /* CollectionHeaderView.swift in Sources */,
@@ -488,6 +496,14 @@
 				minimumVersion = 3.0.0;
 			};
 		};
+		4BF518A42B04512600645D4D /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -500,6 +516,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4BF5186C2B02166E00645D4D /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
+		};
+		4BF518A52B04512600645D4D /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BF518A42B04512600645D4D /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
