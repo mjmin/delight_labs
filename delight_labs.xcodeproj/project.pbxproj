@@ -30,6 +30,7 @@
 		4BF5189D2B03AA1900645D4D /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5189C2B03AA1900645D4D /* TransactionViewModel.swift */; };
 		4BF5189F2B03C7BD00645D4D /* mockdata.json in Resources */ = {isa = PBXBuildFile; fileRef = 4BF5189E2B03C7BD00645D4D /* mockdata.json */; };
 		4BF518A12B03DEE600645D4D /* SwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF518A02B03DEE600645D4D /* SwitchButton.swift */; };
+		4BF518A32B04428F00645D4D /* GraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF518A22B04428F00645D4D /* GraphCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		4BF5189C2B03AA1900645D4D /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		4BF5189E2B03C7BD00645D4D /* mockdata.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockdata.json; sourceTree = "<group>"; };
 		4BF518A02B03DEE600645D4D /* SwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchButton.swift; sourceTree = "<group>"; };
+		4BF518A22B04428F00645D4D /* GraphCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				4BF518962B03830A00645D4D /* Components */,
 				4BF518612B02122800645D4D /* MainView.swift */,
 				4BF518772B02711600645D4D /* GraphTitleCell.swift */,
+				4BF518A22B04428F00645D4D /* GraphCell.swift */,
 				4BF5188C2B03370300645D4D /* TransactionTableCell.swift */,
 				4BF5188A2B0331F500645D4D /* TransactionTitleCell.swift */,
 				4BF518922B037DC800645D4D /* CollectionHeaderView.swift */,
@@ -250,6 +253,7 @@
 				4BF5189D2B03AA1900645D4D /* TransactionViewModel.swift in Sources */,
 				4BF518702B021A1600645D4D /* Extension.swift in Sources */,
 				4BF518952B03826D00645D4D /* BaseLabel.swift in Sources */,
+				4BF518A32B04428F00645D4D /* GraphCell.swift in Sources */,
 				4BF518502B0211F400645D4D /* MainViewController.swift in Sources */,
 				4BF5188B2B0331F500645D4D /* TransactionTitleCell.swift in Sources */,
 				4BF518782B02711600645D4D /* GraphTitleCell.swift in Sources */,

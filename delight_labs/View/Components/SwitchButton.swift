@@ -11,7 +11,6 @@ import UIKit
 class SwitchButton : UIButton {
     override open var isSelected: Bool {
         didSet {
-//            backgroundColor = isSelected ? .navy : nil
             if isSelected {
                 setTitleColor(.white, for: .normal)
                 backgroundColor = .navy

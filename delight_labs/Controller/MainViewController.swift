@@ -12,8 +12,11 @@ class MainViewController: UIViewController {
     let mainView = MainView()
     private var transactionListVM: TransactionListViewModel!
     
-    let transactionTitleIndexPath = IndexPath(row: 1, section: 0)
+    let customCollectionCount = 3
     let graphTitleIndexPath = IndexPath(row: 0, section: 0)
+    let graphIndexPath = IndexPath(row: 1, section: 0)
+    let transactionTitleIndexPath = IndexPath(row: 2, section: 0)
+    
     var transactionCount: Int = 20
     var selectedTransactionType : transactionType = .All {
         didSet {
@@ -39,7 +42,11 @@ class MainViewController: UIViewController {
         didSet {
             
             // set Type Button Selected
+            // graph Title - [switchButton, Date] Change
             guard let cell = mainView.collectionView.cellForItem(at: graphTitleIndexPath) as? GraphTitleCell else { return }
+            cell.typeBtnSelected(type: seletedGraphType)
+            // graph - [axis] Change
+            guard let cell = mainView.collectionView.cellForItem(at: graphIndexPath) as? GraphCell else { return }
             cell.typeBtnSelected(type: seletedGraphType)
             mainView.collectionView.reloadData()
         }
@@ -84,6 +91,7 @@ class MainViewController: UIViewController {
         mainView.collectionView.dataSource = self
         
         mainView.collectionView.register(GraphTitleCell.self, forCellWithReuseIdentifier: GraphTitleCell.reuseIdentifier)
+        mainView.collectionView.register(GraphCell.self, forCellWithReuseIdentifier: GraphCell.reuseIdentifier)
         mainView.collectionView.register(TransactionTitleCell.self, forCellWithReuseIdentifier: TransactionTitleCell.reuseIdentifier)
         mainView.collectionView.register(TransactionTableCell.self, forCellWithReuseIdentifier: TransactionTableCell.reuseIdentifier)
         mainView.collectionView.register(CollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CollectionHeaderView.reuseIdentifier)
@@ -96,7 +104,7 @@ class MainViewController: UIViewController {
 extension MainViewController :UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2 + transactionCount
+        return customCollectionCount + transactionCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -110,6 +118,11 @@ extension MainViewController :UICollectionViewDelegate, UICollectionViewDataSour
             cell.monthBtn.addTarget(self, action: #selector(onGraphSwitchChanged), for: .touchUpInside)
             return cell
         case 1 :
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GraphCell.reuseIdentifier, for: indexPath) as? GraphCell else {
+                return UICollectionViewCell()
+            }
+            return cell
+        case 2 :
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TransactionTitleCell.reuseIdentifier, for: indexPath) as? TransactionTitleCell else {
                 return UICollectionViewCell()
             }
@@ -122,7 +135,7 @@ extension MainViewController :UICollectionViewDelegate, UICollectionViewDataSour
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TransactionTableCell.reuseIdentifier, for: indexPath) as? TransactionTableCell else {
                 return UICollectionViewCell()
             }
-            let item = transactionListVM.transactionAtIndex(indexPath.row, type: selectedTransactionType)
+            let item = transactionListVM.transactionAtIndex(indexPath.row - customCollectionCount , type: selectedTransactionType)
             cell.nameLabel.text = item.name
             cell.typeLabel.text = item.type
             
@@ -180,6 +193,8 @@ extension MainViewController :UICollectionViewDelegate, UICollectionViewDataSour
         case 0 :
             return CGSize(width: collectionView.frame.width, height: 110)
         case 1:
+            return CGSize(width: collectionView.frame.width, height: 230)
+        case 2:
             return CGSize(width: collectionView.frame.width, height: 90)
         default:
             return CGSize(width: collectionView.frame.width, height: 65)

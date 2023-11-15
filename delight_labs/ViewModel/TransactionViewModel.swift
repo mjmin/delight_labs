@@ -56,7 +56,7 @@ extension TransactionListViewModel {
                 return amount > 0
             }
         }
-        let item = selectedList[index - 2]
+        let item = selectedList[index]
         return TransactionViewModel(item)
     }
 }
