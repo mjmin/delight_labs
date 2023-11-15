@@ -67,8 +67,6 @@ class TransactionTitleCell : UICollectionViewCell {
     func setConstraints() {
         titleLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-//            make.top.equalToSuperview().inset(20)
-//            make.height.equalTo(34)
         }
         
         typeStack.snp.makeConstraints { make in

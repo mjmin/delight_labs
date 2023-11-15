@@ -46,21 +46,6 @@ extension UIImage {
         
         return image
     }
-    func rotate() -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        let context = UIGraphicsGetCurrentContext()!
-        context.translateBy(x: size.width, y: size.height)
-        context.scaleBy(x: 1, y: -1)
-        context.draw(cgImage!, in: CGRect(origin:CGPoint.zero, size: size))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage ?? UIImage()
-    }
-    
-    func imageDownMirror() -> UIImage {
-        guard let cgImage = cgImage else { return self }
-        return UIImage(cgImage: cgImage, scale: scale, orientation: .downMirrored)
-    }
 }
 
 extension UIFont {

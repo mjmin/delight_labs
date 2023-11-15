@@ -66,24 +66,20 @@ class GraphCell : UICollectionViewCell {
         
         var lineChartEntry = [ChartDataEntry]() // graph 에 보여줄 data array
         
-        // chart data array 에 데이터 추가
+        // income 데이터 추가
         for i in 0..<income.count {
             let value = ChartDataEntry(x: Double(i), y: Double(income[i].amount ?? 0), data: income[i])
             lineChartEntry.append(value)
         }
-        
         let line1 = LineChartDataSet(entries: lineChartEntry, label: "Income")
         setChartLayout(line1, defaultColor: .navy)
 
-        
         lineChartEntry.removeAll()
-        
-        // chart data array 에 데이터 추가
+        // expense 데이터 추가
         for i in 0..<expense.count {
             let value = ChartDataEntry(x: Double(i), y: Double(abs(expense[i].amount ?? 0)), data: expense[i])
             lineChartEntry.append(value)
         }
-        
         let line2 = LineChartDataSet(entries: lineChartEntry, label: "Expense")
         setChartLayout(line2, defaultColor: .green)
         
@@ -103,7 +99,6 @@ class GraphCell : UICollectionViewCell {
         dataSet.drawValuesEnabled = false
         dataSet.lineWidth = 2
         dataSet.mode = .horizontalBezier
-        dataSet.circleRadius = 7
         dataSet.drawHorizontalHighlightIndicatorEnabled = false
         dataSet.drawVerticalHighlightIndicatorEnabled = false
     

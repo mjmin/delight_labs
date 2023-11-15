@@ -15,6 +15,7 @@ extension TransactionListViewModel {
     var numberOfSections: Int {
         return 1
     }
+    
     func listAtType(_ type : transactionType) -> [Transaction] {
         var selectedList : [Transaction]
         switch type {
@@ -33,23 +34,9 @@ extension TransactionListViewModel {
         }
         return selectedList
     }
+    
     func numberOfRowsAtType(_ type : transactionType) -> Int {
-        var selectedList : [Transaction]
-        switch type {
-        case .All:
-            selectedList = list
-        case .Expense :
-            selectedList = list.filter{
-                guard let amount = $0.amount else { return false }
-                return amount < 0
-            }
-        case .Income :
-            selectedList = list.filter{
-                guard let amount = $0.amount else { return false }
-                return amount > 0
-            }
-        }
-        return selectedList.count
+        return listAtType(type).count
     }
     
     func transactionAtIndex(_ index: Int) -> TransactionViewModel {
@@ -58,21 +45,7 @@ extension TransactionListViewModel {
     }
     
     func transactionAtIndex(_ index: Int, type : transactionType) -> TransactionViewModel {
-        var selectedList : [Transaction]
-        switch type {
-        case .All:
-            selectedList = list
-        case .Expense :
-            selectedList = list.filter{
-                guard let amount = $0.amount else { return false }
-                return amount < 0
-            }
-        case .Income :
-            selectedList = list.filter{
-                guard let amount = $0.amount else { return false }
-                return amount > 0
-            }
-        }
+        let selectedList = listAtType(type)
         let item = selectedList[index]
         return TransactionViewModel(item)
     }
@@ -80,9 +53,7 @@ extension TransactionListViewModel {
 
 struct TransactionViewModel {
     private let transaction: Transaction
-}
 
-extension TransactionViewModel {
     init(_ transaction: Transaction) {
         self.transaction = transaction
     }

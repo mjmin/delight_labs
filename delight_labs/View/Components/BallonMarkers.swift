@@ -191,31 +191,4 @@ open class BalloonMarker: MarkerImage
         size.height = max(minimumSize.height, size.height)
         self.size = size
     }
-//
-//    func setSize() {
-//        _labelSize = label?.size(withAttributes: _drawAttributes) ?? CGSize.zero
-//        _dateSize = date?.size(withAttributes: _drawAttributes) ?? CGSize.zero
-//        let defatulWidth = max(_labelSize.width, _dateSize.width)
-//        let defatulHeight = max(_labelSize.height, _dateSize.height)
-//
-//        var size = CGSize()
-//        size.width = defatulWidth + self.insets.left + self.insets.right
-//        size.height = defatulHeight + self.insets.top + self.insets.bottom
-//        size.width = max(minimumSize.width, size.width)
-//        size.height = max(minimumSize.height, size.height)
-//        self.size = size
-//
-//    }
-//
-//    @objc open func setDate(_ newDate: String)
-//    {
-//        date = newDate
-//
-//        _drawAttributes.removeAll()
-//        _drawAttributes[.font] = UIFont.popinsSemiBold(size: 12)
-//        _drawAttributes[.paragraphStyle] = _paragraphStyle
-//        _drawAttributes[.foregroundColor] = self.textColor
-//        _labelSize = date?.size(withAttributes: _drawAttributes) ?? CGSize.zero
-//        setSize()
-//    }
 }

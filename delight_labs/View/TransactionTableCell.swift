@@ -59,13 +59,13 @@ class TransactionTableCell : UICollectionViewCell {
     
     let nameLabel = BaseLabel().then {
         $0.font = UIFont.popinsSemiBold(size: 16)
-        $0.text = "Title"
+        $0.text = "Name"
     }
     
     let typeLabel = BaseLabel().then {
         $0.font = UIFont.popinsRegular(size: 14)
         $0.textColor = .transactionDescriptionColor
-        $0.text = "Description"
+        $0.text = "Type"
     }
     
     let numberStack = UIStackView().then {
@@ -109,7 +109,6 @@ class TransactionTableCell : UICollectionViewCell {
         }
         image.snp.makeConstraints { make in
             make.leading.top.equalToSuperview()
-//            make.height.equalToSuperview()
             make.width.height.equalTo(55)
         }
     }
