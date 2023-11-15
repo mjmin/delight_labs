@@ -135,18 +135,7 @@ extension MainViewController :UICollectionViewDelegate, UICollectionViewDataSour
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TransactionTableCell.reuseIdentifier, for: indexPath) as? TransactionTableCell else {
                 return UICollectionViewCell()
             }
-            let item = transactionListVM.transactionAtIndex(indexPath.row - customCollectionCount , type: selectedTransactionType)
-            cell.nameLabel.text = item.name
-            cell.typeLabel.text = item.type
-            
-            cell.timeLabel.text = item.timestamp?.formatted("h.mm a")
-            if let amount = item.amount {
-                if amount > 0 {
-                    cell.amountLabel.text = "+\(String(format: "%.1f", amount))"
-                }else {
-                    cell.amountLabel.text = "\(String(format: "%.1f", amount))"
-                }
-            }
+            cell.item = transactionListVM.transactionAtIndex(indexPath.row - customCollectionCount , type: selectedTransactionType)
             return cell
         }
     }

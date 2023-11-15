@@ -12,6 +12,24 @@ import SnapKit
 
 class TransactionTableCell : UICollectionViewCell {
     
+    var item : TransactionViewModel? = nil {
+        didSet {
+            guard let item = item else { return }
+            nameLabel.text = item.name
+            typeLabel.text = item.type
+            
+            timeLabel.text = item.timestamp?.formatted("h.mm a")
+            if let amount = item.amount {
+                if amount > 0 {
+                    amountLabel.text = "+\(String(format: "%.1f", amount))"
+                }else {
+                    amountLabel.text = "\(String(format: "%.1f", amount))"
+                }
+            }
+        }
+    }
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setConfigure()
