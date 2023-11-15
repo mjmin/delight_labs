@@ -114,7 +114,7 @@ open class BalloonMarker: MarkerImage
             let p1 = CGPoint(x: rect.origin.x + rect.size.width / 2.0 - arrowSize.width / 2.0, y: rect.origin.y + arrowSize.height + 1)
             context.move(to: p1)
             context.addLine(to: CGPoint(x: p1.x + arrowSize.width, y: p1.y))
-            context.addLine(to: CGPoint(x: point.x, y: point.y))
+            context.addLine(to: CGPoint(x: point.x, y: point.y + 5))
             context.addLine(to: p1)
             
             context.fillPath()
@@ -132,7 +132,7 @@ open class BalloonMarker: MarkerImage
             let p1 = CGPoint(x: rect.origin.x + rect.size.width / 2.0 - arrowSize.width / 2.0, y: rect.origin.y + rect.size.height - arrowSize.height - 1)
             context.move(to: p1)
             context.addLine(to: CGPoint(x: p1.x + arrowSize.width, y: p1.y))
-            context.addLine(to: CGPoint(x: point.x, y: point.y))
+            context.addLine(to: CGPoint(x: point.x, y: point.y - 5))
             context.addLine(to: p1)
             
             context.fillPath()
@@ -147,6 +147,12 @@ open class BalloonMarker: MarkerImage
         rect.size.height -= self.insets.top + self.insets.bottom
         
         UIGraphicsPushContext(context)
+        
+        let radius: CGFloat = 4
+        let circleRect = CGRect(x: point.x - radius, y: point.y - radius, width: radius * 2, height: radius * 2)
+               context.setFillColor(color.cgColor)
+               context.fillEllipse(in: circleRect)
+        
         
         label.draw(in: rect, withAttributes: _drawAttributes)
         
