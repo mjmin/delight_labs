@@ -141,9 +141,9 @@
 				4BF518792B0271C700645D4D /* ReuseIdentifier.swift */,
 				4BF5186F2B021A1600645D4D /* Extension.swift */,
 				4BF518942B03826D00645D4D /* BaseLabel.swift */,
-				4BF518662B0214C900645D4D /* Fonts */,
 				4BF518A02B03DEE600645D4D /* SwitchButton.swift */,
 				4BF518A82B045B5700645D4D /* BallonMarkers.swift */,
+				4BF518662B0214C900645D4D /* Fonts */,
 			);
 			path = Components;
 			sourceTree = "<group>";

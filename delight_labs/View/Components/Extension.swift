@@ -32,12 +32,10 @@ extension UIImage {
     func createSelectionIndicator(color: UIColor, size: CGSize, lineWidth: CGFloat) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         color.setFill()
-        let cornerRadius :CGFloat = 10
         let rect = CGRect(origin: .zero, size: size)
-        UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).addClip()
         draw(in: rect)
         let fill = CGRectMake(0, size.height - lineWidth, size.width, lineWidth)
-        UIBezierPath(roundedRect: fill, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 4.0, height: 4.0)).addClip()
+        UIBezierPath(roundedRect: fill, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width:4.0, height: 4.0)).addClip()
         UIRectFill(fill)
         
         guard let image = UIGraphicsGetImageFromCurrentImageContext() else {

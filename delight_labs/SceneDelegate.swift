@@ -43,9 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         items[3].image = UIImage(named: "tab4")
         
         let tabBar = tabBarVC.tabBar
-        let selectBar = UIImage().createSelectionIndicator(color : .navy, size: CGSizeMake(tabBar.frame.width/CGFloat(items.count) - 40, tabBar.frame.height), lineWidth: 7.0)
-        //        selectBar.transform = CGAffineTransform(scaleX: -1, y: 1); //Flipped
-        //        selectBar.withHorizontallyFlippedOrientation()
+        let selectBar = UIImage().createSelectionIndicator(color : .navy, size: CGSizeMake(tabBar.frame.width/CGFloat(items.count) - 40, tabBar.frame.height), lineWidth: 5.0)
         tabBarVC.tabBar.selectionIndicatorImage = selectBar
         
         window?.rootViewController = tabBarVC
